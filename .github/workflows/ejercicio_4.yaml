@@ -13,7 +13,8 @@ jobs:
       - run: echo "Hola Mundo!" > ${{ env.FILE_NAME }}
       - uses: actions/upload-artifact@v4
         with:
-          name: my-file
+          name: my-
+          path: ${{ env.FILE_NAME }}
   
   download_file:
     name: "Download the file and display its content"
@@ -23,4 +24,5 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: my-file
+          path: ${{ env.FILE_NAME }}
       - run: cat ${{ env.FILE_NAME }}
