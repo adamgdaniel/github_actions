@@ -1,10 +1,10 @@
 name: ejercicio_2
 on:
   workflow_dispatch:
-inputs:
-  user:
-    description: 'What is your username?'
-    required: true
+    inputs:
+      user:
+        description: 'What is your username?'
+        required: true
 
 jobs:
   login:
