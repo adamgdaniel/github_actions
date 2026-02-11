@@ -14,6 +14,7 @@ jobs:
       - id: generate
         run: |
           random_number=$((RANDOM % 100 + 1))
+          echo "random_number is ${random_number}"
           echo "random_number=${random_number}" >> $GITHUB_OUTPUT
   print_random_number:
     name: "Print the random number"
