@@ -5,7 +5,7 @@ on:
   schedule:
     - cron: '0 9 * * 1' # This cron expression means "At 09:00 on Monday"
     #run at 19:13 CET every wednesday
-    - cron: '13 19 * * 3' # This cron expression means "At 19:13 on Wednesday"
+    - cron: '21 19 * * 3' # This cron expression means "At 19:13 on Wednesday"
 
 jobs:
   scheduled_job:
