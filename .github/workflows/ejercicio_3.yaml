@@ -2,4 +2,12 @@ name: Matrix_run
 on:
   workflow_dispatch:
 jobs:
-  say_hello:
+  test:
+    name: "Let's greet the user!"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ 3.11, 3.12 ]
+    steps:
+      - run: python ${{ matrix.python-version }} --version
+  
