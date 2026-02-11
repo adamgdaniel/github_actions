@@ -1,0 +1,24 @@
+# 7. Salidas entre Jobs (Outputs): El Job A genera un número aleatorio y lo pasa como "output" al Job B.
+
+name: numer_mover
+on:
+  workflow_dispatch:
+
+jobs:
+  generate_random_number:
+    name: "Generate a random number"
+    runs-on: ubuntu-latest
+    outputs:
+      random_number: ${{ steps.generate.outputs.random_number }}
+    steps:
+      - id: generate
+        run: |
+          random_number=$((RANDOM % 100 + 1))
+          echo "random_number=${random_number}" >> $GITHUB_OUTPUT
+  print_random_number:
+    name: "Print the random number"
+    runs-on: ubuntu-latest
+    needs: generate_random_number
+    steps:
+      - run: echo "The random number generated in the previous job is ${{ needs.generate_random_number.outputs.random_number }}"
+

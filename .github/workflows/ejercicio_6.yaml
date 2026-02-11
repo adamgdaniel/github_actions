@@ -1,0 +1,17 @@
+# 6. Validación de JSON: Crea un workflow que use una acción de la comunidad para validar que un archivo data.json en el repo tiene un formato correcto. Para este ejercicio debeis generar un archivo .json en la raíz del repositorio con las claves (curso, modulo y alumnos)
+
+name: JSON Validation
+on:
+  workflow_dispatch:
+
+jobs:
+  validate_json:
+    name: "Validar JSON"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate JSON
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: /jsons/schema.json
+          INPUT_JSONS: /data.json

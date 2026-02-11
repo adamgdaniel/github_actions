@@ -1,0 +1,15 @@
+# 5. Filtros de Rama y Ruta: Crea un workflow que solo se active cuando haya un push en la rama develop Y que solo afecte a archivos dentro de una carpeta llamada docs/.
+
+name: Branch and Path Filter
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'docs/**'
+jobs:
+  inform_uplad:
+    name: "Inform about the push to develop branch and docs folder"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "A push was made to the develop branch affecting files in the docs/ folder!"
