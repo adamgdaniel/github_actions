@@ -1,0 +1,16 @@
+name: ejercicio_2
+on:
+  workflow_dispatch:
+inputs:
+  user:
+    description: 'What is your username?'
+    required: true
+
+jobs:
+  login:
+    name: "Login"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Connecting to the db as user ${{ inputs.user }}..."
+      - run: echo "Password ${{ secrets.DB_PASSWORD }}"
+      - run: echo "Connected!"
